@@ -1,0 +1,28 @@
+{
+  "name": "gnat-controller-loader",
+  "version": "0.0.1",
+  "description": "Load koa-router routes from the provided directory.",
+  "main": "router.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gnat-service/controller-loader.git"
+  },
+  "keywords": [
+    "koa",
+    "router",
+    "controller"
+  ],
+  "author": "leaf4monkey <joc98@163.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gnat-service/controller-loader/issues"
+  },
+  "homepage": "https://github.com/gnat-service/controller-loader#readme",
+  "dependencies": {
+    "dir-traverse": "0.0.1",
+    "koa-router": "^7.2.0"
+  }
+}
