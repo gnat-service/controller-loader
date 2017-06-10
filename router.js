@@ -12,6 +12,11 @@ let fileNamePattern = '[a-zA-Z\\d\\.\\-\\_]+';
 let jsPattern = new RegExp(`^${fileNamePattern}\\.js$`);
 let dirPattern = new RegExp(`^${fileNamePattern}$`);
 
+let isRoot = group => group === 'root';
+
+let metaConfigFilenames = ['meta-config.js', 'meta-config.json'];
+let isMetaConfig = file => metaConfigFilenames.indexOf(file) >= 0;
+
 let routePathPattern = /^([A-Z]+(\\,[A-Z]+)? )?\S+$/;
 let checkRoutePath = route => {
     if (!routePathPattern.test(route)) {
@@ -78,11 +83,6 @@ function controllerLoader (App) {
     let dir = configs.controllerDir;
     let contextPath = configs.contextPath;
 
-    let isRoot = group => group === 'root';
-
-    let metaConfigFilenames = ['meta-config.js', 'meta-config.json'];
-    let isMetaConfig = file => metaConfigFilenames.indexOf(file) >= 0;
-
     function addControllers (router, dirPath) {
         let options = {
             filter: file => !isMetaConfig(file),
@@ -139,7 +139,7 @@ function controllerLoader (App) {
         opts.prefix = contextPath;
     }
     let router = new Router(opts);
-    addControllers(router, PATH.join(PATH.resolve(baseDir, dir)));
+    addControllers(router, PATH.resolve(baseDir, dir));
     return router;
 }
 
