@@ -87,10 +87,9 @@ function controllerLoader (App) {
         let options = {
             filter: file => !isMetaConfig(file),
             router,
-            handler: ({directory, filename, fullPath, isFile, isDirectory}) => {
+            handler: ({directory, name, filename, fullPath, isFile, isDirectory}) => {
                 if (isFile && filename.endsWith('.js')) {
                     checkJs(filename);
-                    let name = PATH.parse(filename).name;
                     let _isRoot = isRoot(name);
                     let group = `/${name}`;
                     if (_isRoot) {
