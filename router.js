@@ -115,7 +115,9 @@ function addControllers (router, dirPath) {
     loader(dirPath, options);
 }
 
-function controllerLoader (dir = 'controllers', _contextPath = '') {
+function controllerLoader (_App, dir = 'controllers', _contextPath = '') {
+    App = _App;
+    baseDir = _App.dir;
     controllerDir = dir;
     contextPath = _contextPath;
     let opts = {};
@@ -129,10 +131,5 @@ function controllerLoader (dir = 'controllers', _contextPath = '') {
     addControllers(router, PATH.join(PATH.resolve(baseDir, controllerDir)));
     return router;
 }
-
-controllerLoader.initialize = function (options) {
-    baseDir = options.baseDir;
-    App = options.App;
-};
 
 module.exports = controllerLoader;
