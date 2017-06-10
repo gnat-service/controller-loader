@@ -31,8 +31,8 @@ let checkDir = function (dir) {
     }
 };
 
-let getMapping = (App, group, isRoot, filePath) => {
-    let mapping = require(filePath)(App);
+let getMapping = (configs, group, isRoot, filePath) => {
+    let mapping = require(filePath)(configs);
     if (!mapping.meta && !mapping.routes) {
         mapping = {meta: {group}, routes: mapping};
     } else {
@@ -73,9 +73,10 @@ function addMapping (router, mapping) {
 }
 
 function controllerLoader (App) {
-    let baseDir = App.dir;
-    let dir = App.controllerDir;
-    let contextPath = App.contextPath;
+    let {configs} = App;
+    let baseDir = configs.dir;
+    let dir = configs.controllerDir;
+    let contextPath = configs.contextPath;
 
     let isRoot = group => group === 'root';
 
@@ -96,7 +97,7 @@ function controllerLoader (App) {
                         group = '';
                     }
 
-                    let mapping = getMapping(App, group, _isRoot, fullPath);
+                    let mapping = getMapping(configs, group, _isRoot, fullPath);
                     let {meta, routes} = mapping;
                     meta.group = meta.group || group;
 

@@ -8,9 +8,11 @@ const assert = require('chai').assert;
 const PATH = require('path');
 
 const App = {
-    dir: PATH.resolve(__dirname, '../'),
-    controllerDir: 'test/mock/controllers',
-    contextPath: 'app'
+    configs: {
+        dir: PATH.resolve(__dirname, '../'),
+        controllerDir: 'test/mock/controllers',
+        contextPath: 'app'
+    }
 };
 
 describe('controller-loader', function () {
