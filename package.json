@@ -1,6 +1,6 @@
 {
   "name": "gnat-controller-loader",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Load koa-router routes from the provided directory.",
   "main": "router.js",
   "scripts": {
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/gnat-service/controller-loader#readme",
   "dependencies": {
-    "dir-traverse": "0.0.1",
+    "dir-traverse": "0.0.2",
     "koa-router": "^7.2.0"
   }
 }
