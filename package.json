@@ -1,6 +1,6 @@
 {
   "name": "gnat-controller-loader",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Load koa-router routes from the provided directory.",
   "main": "router.js",
   "scripts": {

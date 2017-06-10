@@ -7,7 +7,12 @@ module.exports = App => ({
     'GET /': function (ctx, next) {
         ctx.body = ctx.url;
     },
-    'GET /3' (ctx, next) {
-        ctx.body = ctx.url;
+    'GET /3': {
+        meta: {
+            ignore: true
+        },
+        route (ctx, next) {
+            ctx.body = ctx.url;
+        }
     }
 });

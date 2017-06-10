@@ -18,7 +18,7 @@ describe('controller-loader', function () {
             '/1/2/path2',
             '/1/2',
             '/1/path1/',
-            '/1/path1/3',
+            //'/1/path1/3',
             '/1/path1',
             '/1/',
             '',
