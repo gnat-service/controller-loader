@@ -72,8 +72,10 @@ function addMapping (router, mapping) {
     }
 }
 
-function controllerLoader (App, dir = 'controllers', contextPath = '') {
+function controllerLoader (App) {
     let baseDir = App.dir;
+    let dir = App.controllerDir;
+    let contextPath = App.contextPath;
 
     let isRoot = group => group === 'root';
 

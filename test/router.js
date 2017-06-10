@@ -7,11 +7,15 @@ const loader = require('../router');
 const assert = require('chai').assert;
 const PATH = require('path');
 
-const App = {dir: PATH.resolve(__dirname, '../')};
+const App = {
+    dir: PATH.resolve(__dirname, '../'),
+    controllerDir: 'test/mock/controllers',
+    contextPath: 'app'
+};
 
 describe('controller-loader', function () {
     it('execute', function () {
-        let router = loader(App, 'test/mock/controllers', 'app');
+        let router = loader(App);
         assert.sameMembers(router.routes().router.stack.map(layer => layer.path), [
             '/1/2/path2/',
             '/1/2/path2/3',
